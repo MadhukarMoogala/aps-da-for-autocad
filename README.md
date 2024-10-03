@@ -37,7 +37,7 @@ Here is a breakdown of the most commonly used switches and what they do:
   This switch allows you choose language if a language pack is installed on target machine.
   
   `/l en-US`
-
+  
   ---------------------These may not be required for Design Automation workflows-----------
 
 - **/p** (Profile)  
@@ -57,12 +57,12 @@ Here is a breakdown of the most commonly used switches and what they do:
   This switch load the drawing in read only mode.
   
   Example:  `accoreconsole.exe /i test.dwg /readonly`
-  
-  
-  
-  
-  
-    
+
+### How to Use AcCoreConsole
+
+[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://git.autodesk.com/moogalm/local-da4a-usage/blob/main/How-To-Use-AcCoreConsole.mp4)
+
+Or, you can directly [watch the video here](https://git.autodesk.com/moogalm/local-da4a-usage/blob/main/How-To-Use-AcCoreConsole.mp4).
 
 ### Example Project: Running Custom Apps with accoreconsole
 
@@ -76,35 +76,31 @@ The provided C# code defines a plugin for AutoCAD that extracts layer names from
 2. **AutoCAD Command**:
    
    - The `[CommandMethod("EXTRACTDATA")]` attribute defines a custom AutoCAD command
-   
-   
-   
-   ```cs
-   [CommandMethod("EXTRACTDATA")]
-   public void ExtractData()
-   {
-       var doc = Application.DocumentManager.MdiActiveDocument;
-       if (doc is null) return;
-       var ed = doc.Editor;
-       try
-       {
-           //extract layer names and save them to layers.txt
-           var db = doc.Database;
-           using (var writer = File.CreateText("layers.txt"))
-           {
-               dynamic layers = db.LayerTableId;
-               foreach (dynamic layer in layers)
-                   writer.WriteLine(layer.Name);
-           }
-       }
-       catch (System.Exception e)
-       {
-           ed.WriteMessage("Error: {0}", e);
-       }
-   }
-   ```
 
-
+```cs
+[CommandMethod("EXTRACTDATA")]
+public void ExtractData()
+{
+    var doc = Application.DocumentManager.MdiActiveDocument;
+    if (doc is null) return;
+    var ed = doc.Editor;
+    try
+    {
+        //extract layer names and save them to layers.txt
+        var db = doc.Database;
+        using (var writer = File.CreateText("layers.txt"))
+        {
+            dynamic layers = db.LayerTableId;
+            foreach (dynamic layer in layers)
+                writer.WriteLine(layer.Name);
+        }
+    }
+    catch (System.Exception e)
+    {
+        ed.WriteMessage("Error: {0}", e);
+    }
+}
+```
 
 ## Bundle Structure for Autoloading.
 
