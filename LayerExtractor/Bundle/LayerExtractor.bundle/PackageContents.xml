@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage SchemaVersion="1.0" AppVersion="1.0.0" ProductCode="{30410EF1-E42C-4FC4-BC80-7C3803B8976A}" Name="Layer Extractor Plugin" Description="Exporting layers to a txt file" Author="Madhukar Moogala">
+    <CompanyDetails Name="Autodesk, Inc" Url="http://tutorials.autodesk.io" Email="aps.help@autodesk.com"/>
+    <Components>
+        <RuntimeRequirements OS="Win64" SeriesMin="R25.0" SeriesMax="R25.0"/>
+        <ComponentEntry AppName="LayerExtractor" ModuleName="./Contents/LayerExtractor.dll" AppDescription="Exporting layers to a txt file" LoadOnCommandInvocation="True" LoadOnAutoCADStartup="False">
+            <Commands GroupName="EXTRACTDATA">
+                <Command Global="EXTRACTDATA" Local="EXTRACTDATA"/>
+            </Commands>
+        </ComponentEntry>
+    </Components>
+</ApplicationPackage>
