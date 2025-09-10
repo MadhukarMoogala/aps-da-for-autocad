@@ -28,7 +28,7 @@ Here is a breakdown of the most commonly used switches and what they do:
   
   - This switch allows you isolate the coreconsole context without altering the AutoCAD environments.
     
-    We copy the all the files under the current lang's local and roaming folders to the specified input `userDataFolder` folder and copy the  registry keys under the user root node to the `userid` key
+    We copy all the files under the current lang's local and roaming folders to the specified input `userDataFolder` folder and copy the registry keys under the user root node to the `userid` key
     
     Example: `/isolate user1 D:\Temp\ToDeleteLater`
 
@@ -50,19 +50,18 @@ Here is a breakdown of the most commonly used switches and what they do:
 
 - **/product** (Product Selection)  
   This switch allows you to specify the AutoCAD product variant you are working with.  
-  Example: `/product "AutoCAD"`
+  Example: `/product "AutoCAD"` or `/product C3D`
 
 - **/readonly**
   
-  This switch load the drawing in read only mode.
+  This switch loads the drawing in read only mode.
   
   Example:  `accoreconsole.exe /i test.dwg /readonly`
 
 ### How to Use AcCoreConsole
 
-[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://git.autodesk.com/moogalm/local-da4a-usage/blob/main/How-To-Use-AcCoreConsole.mp4)
+[📹 Video Tutorial](How-To-Use-AcCoreConsole.mp4)
 
-Or, you can directly [watch the video here](https://git.autodesk.com/moogalm/local-da4a-usage/blob/main/How-To-Use-AcCoreConsole.mp4).
 
 ### Example Project: Running Custom Apps with accoreconsole
 
@@ -197,7 +196,5 @@ The `PackageContents.xml` file defines the metadata for the AutoCAD plugin, spec
 
 - The command name `EXTRACTDATA` defined in the C# `[CommandMethod]` attribute is referenced in the `PackageContents.xml` to ensure the plugin loads correctly when the command is invoked.
 - The `ModuleName` points to the DLL that contains the `ExtractorCommands` class, ensuring that the plugin's functionality is loaded from the correct file.
-
-# 
 
 Written by Madhukar Moogala (APS Developer Advocate)
